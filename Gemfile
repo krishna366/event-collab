@@ -7,6 +7,11 @@ gem 'rails', '3.2.6'
 
 gem 'sqlite3'
 
+gem "rake", "0.8.7"
+
+gem 'mysql2'
+gem 'devise'
+
 gem 'json'
 
 # Gems used only for assets and not required
