@@ -2,6 +2,8 @@ EventCollab::Application.routes.draw do
   resources :events
 
   devise_for :users
+  
+  root :to => "events#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
