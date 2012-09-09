@@ -5,7 +5,13 @@ before_filter :authenticate_user!
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+  
+  if user_signed_in?
+  
+  @userId = current_user.id
+  @events = Event.where("user_id = ?",@userId)
+  end
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +50,7 @@ before_filter :authenticate_user!
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-
+	@event.user = current_user
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, :notice => 'Event was successfully created.' }
